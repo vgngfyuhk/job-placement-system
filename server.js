@@ -3,14 +3,16 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
 app.use(cors());
-app.use(express.static('.')); // Serve static files
 
-// Sample database (we'll use a real database later)
+// Serve static files (HTML, CSS, JS for frontend)
+app.use(express.static(path.join(__dirname)));
+
+// Sample database
 let jobs = [
   {
     id: 1,
@@ -30,12 +32,7 @@ let jobs = [
   }
 ];
 
-// Routes
-
-// Serve the main page
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
+// API Routes
 
 // GET all jobs
 app.get('/api/jobs', (req, res) => {
@@ -59,7 +56,12 @@ app.delete('/api/jobs/:id', (req, res) => {
   res.json({ message: 'Job deleted successfully' });
 });
 
+// Serve the main page for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // Start server
 app.listen(port, () => {
-  console.log(`🚀 Job Placement Server running at: http://localhost:${port}`);
+  console.log(`🚀 Job Placement Server running on port: ${port}`);
 });
