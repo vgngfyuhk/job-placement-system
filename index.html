@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MagicJobs - Professional Placement Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>✨ MagicJobs</h1>
+      <p>Find Your Dream Career Opportunity</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Add Job Section -->
+      <section class="add-job-section">
+        <h2 class="section-title">Add New Job</h2>
+        <div class="form-group">
+          <label for="companyName">🏢 Company Name</label>
+          <input type="text" id="companyName" class="form-control" placeholder="Enter company name">
+        </div>
+        
+        <div class="form-group">
+          <label for="jobTitle">💼 Job Title</label>
+          <input type="text" id="jobTitle" class="form-control" placeholder="Enter job title">
+        </div>
+        
+        <div class="form-group">
+          <label for="location">📍 Location</label>
+          <input type="text" id="location" class="form-control" placeholder="Enter job location">
+        </div>
+        
+        <div class="form-group">
+          <label for="salary">💰 Salary Package</label>
+          <input type="text" id="salary" class="form-control" placeholder="e.g., ₹25 LPA">
+        </div>
+        
+        <div class="form-group">
+          <label for="description">📝 Job Description</label>
+          <textarea id="description" class="form-control" placeholder="Describe the job role" rows="3"></textarea>
+        </div>
+        
+        <button class="btn btn-primary" onclick="addJob()">
+          🚀 Add Job Opening
+        </button>
+      </section>
+
+      <!-- Job List Section -->
+      <section class="job-list-section">
+        <div class="controls">
+          <h2 class="section-title">Job Openings</h2>
+          <button class="btn btn-success" onclick="loadJobs()">
+            🔄 Refresh Jobs
+          </button>
+        </div>
+        
+        <ul id="jobList">
+          <li class="no-jobs">Click "Refresh Jobs" to load opportunities!</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
